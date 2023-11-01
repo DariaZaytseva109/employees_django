@@ -16,13 +16,22 @@ class Employee(models.Model):
     department = models.ForeignKey('Department',
                                    on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.fullname
+
 
 class Department(models.Model):
     department_name = models.CharField(max_length=30)
     floor = models.IntegerField()
     branch = models.ForeignKey('Branch', null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return self.department_name
+
 
 class Branch(models.Model):
     address = models.CharField(max_length=30)
     branch_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.branch_name
