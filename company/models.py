@@ -19,7 +19,7 @@ class Employee(models.Model):
 
 class Department(models.Model):
     department_name = models.CharField(max_length=30)
-    floor = models.IntegerField
+    floor = models.IntegerField()
     branch = models.ForeignKey('Branch', null=True, on_delete=models.SET_NULL)
 
 
